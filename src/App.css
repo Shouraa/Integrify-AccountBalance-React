@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.head {
+  color: black;
+  margin: 0 auto;
+
+}
+
+.inputBar {
+  background: rgb(137, 2, 150);
+}
+
+input[type=text], select {
+  width: 250px;
+  padding: 12px 20px;
+  font-size: 25px;
+  color: black;
+  margin: 8px 6px;
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: #84a8bc;
+  border: none;
+  color: white;
+  padding: 17px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 11px;
+  font-weight: bold;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.income {
+  background: rgb(96, 221, 96);
+}
+
+.expense {
+  background: rgb(235, 87, 87);
+}
+
+.balance {
+  background: black;
+  color: white;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.list {
+  list-style-type: none;
+  font-size: 25px;
+}
