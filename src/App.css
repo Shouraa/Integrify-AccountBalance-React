@@ -6,14 +6,14 @@
 .head {
   color: black;
   margin: 0 auto;
-
 }
 
 .inputBar {
   background: rgb(137, 2, 150);
 }
 
-input[type=text], select {
+input[type="text"],
+select {
   width: 250px;
   padding: 12px 20px;
   font-size: 25px;
@@ -39,7 +39,6 @@ input[type=text], select {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-
 }
 
 .income {
