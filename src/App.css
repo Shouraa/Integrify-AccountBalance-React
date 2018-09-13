@@ -1,9 +1,16 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
   text-align: center;
   margin: 0 auto;
 }
 
 .head {
+  background-color: blanchedalmond;
   color: black;
   margin: 0 auto;
 }

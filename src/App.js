@@ -28,9 +28,9 @@ class App extends Component {
     this.setState({ addType: e.target.value });
   };
 
-  handleDelete = e => {
-    this.deleteItem();
-  };
+  // handleDelete = e => {
+  //   this.deleteItem();
+  // };
 
   //Getting the time
   displayDateTime = () => {
@@ -63,6 +63,7 @@ class App extends Component {
       arr1.push({
         description: this.state.description,
         amount: this.state.amount,
+        addType: this.state.addType,
         time: this.displayDateTime()
       });
       this.setState({ incomes: arr1 });
@@ -70,6 +71,7 @@ class App extends Component {
       arr2.push({
         description: this.state.description,
         amount: this.state.amount,
+        addType: this.state.addType,
         time: this.displayDateTime()
       });
       this.setState({ expenses: arr2 });
@@ -80,14 +82,14 @@ class App extends Component {
   };
 
   //Deleting items
-  deleteItem = index => {
-    let arr1 = this.state.incomes;
+  deleteItem = (addType, index) => {
+    let arr1 = [...this.state.incomes];
     let arr2 = this.state.expenses;
 
-    if (this.state.addType === "Income") {
+    if (addType === "Income") {
       arr1.splice(index, 1);
-      this.setState({ income: arr1 });
-    } else if (this.state.addType === "Expense") {
+      this.setState({ incomes: arr1 });
+    } else if (addType === "Expense") {
       arr2.splice(index, 1);
       this.setState({ expenses: arr2 });
     }
@@ -120,8 +122,8 @@ class App extends Component {
     console.log(this.state.expenses);
 
     return (
-      <div className="App">
-        <Header title="Account Balance" />
+      <div className="">
+        <Header title="Account Balance App" />
 
         <Form
           description={this.state.description}
@@ -137,7 +139,7 @@ class App extends Component {
           incomes={this.state.incomes}
           expenses={this.state.expenses}
           balance={this.state.balance}
-          handleDelete={this.handleDelete}
+          handleDelete={this.deleteItem}
         />
       </div>
     );

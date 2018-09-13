@@ -8,7 +8,9 @@ const Expense = props => {
         <li className="list" key={index} index={index}>
           <div>
             {expense.description} -- {expense.amount} &euro; {expense.time}
-            <button onClick={props.handleDelete}>delete</button>
+            <button onClick={() => props.handleDelete("Expense", index)}>
+              delete
+            </button>
           </div>
         </li>
       ))}
