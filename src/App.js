@@ -28,10 +28,6 @@ class App extends Component {
     this.setState({ addType: e.target.value });
   };
 
-  // handleDelete = e => {
-  //   this.deleteItem();
-  // };
-
   //Getting the time
   displayDateTime = () => {
     let now = new Date();
@@ -66,7 +62,9 @@ class App extends Component {
         addType: this.state.addType,
         time: this.displayDateTime()
       });
-      this.setState({ incomes: arr1 });
+      this.setState({
+        incomes: arr1
+      });
     } else if (this.state.addType === "Expense") {
       arr2.push({
         description: this.state.description,
@@ -74,47 +72,47 @@ class App extends Component {
         addType: this.state.addType,
         time: this.displayDateTime()
       });
-      this.setState({ expenses: arr2 });
+      this.setState({
+        expenses: arr2,
+        balance: this.calculateBalance2(arr1, arr2)
+      });
     }
     this.setState({ description: "" });
     this.setState({ amount: "" });
-    this.calculateBalance();
   };
 
   //Deleting items
   deleteItem = (addType, index) => {
     let arr1 = [...this.state.incomes];
-    let arr2 = this.state.expenses;
+    let arr2 = [...this.state.expenses];
 
     if (addType === "Income") {
       arr1.splice(index, 1);
-      this.setState({ incomes: arr1 });
+      this.setState({
+        incomes: arr1,
+        balance: this.calculateBalance2(arr1, arr2)
+      });
     } else if (addType === "Expense") {
       arr2.splice(index, 1);
-      this.setState({ expenses: arr2 });
+      this.setState({
+        expenses: arr2,
+        balance: this.calculateBalance2(arr1, arr2)
+      });
     }
-    this.calculateBalance();
   };
 
   //Calculating the sum
-  calculateBalance = () => {
+  calculateBalance2 = (incomesList, expensesList) => {
     let totalIncome = 0;
     let totalExpense = 0;
-    let balance;
-
-    this.state.incomes.map(income => {
+    incomesList.map(income => {
       totalIncome = totalIncome + parseFloat(income.amount);
     });
 
-    this.state.expenses.map(expense => {
+    expensesList.map(expense => {
       totalExpense = totalExpense + parseFloat(expense.amount);
     });
-
-    balance = totalIncome - totalExpense;
-
-    this.setState({
-      balance: balance
-    });
+    return totalIncome - totalExpense;
   };
 
   render() {
@@ -147,3 +145,23 @@ class App extends Component {
 }
 
 export default App;
+
+// calculateBalance = () => {
+//   let totalIncome = 0;
+//   let totalExpense = 0;
+//   let balance;
+
+//   this.state.incomes.map(income => {
+//     totalIncome = totalIncome + parseFloat(income.amount);
+//   });
+
+//   this.state.expenses.map(expense => {
+//     totalExpense = totalExpense + parseFloat(expense.amount);
+//   });
+
+//   balance = totalIncome - totalExpense;
+
+//   this.setState({
+//     balance: balance
+//   });
+// };

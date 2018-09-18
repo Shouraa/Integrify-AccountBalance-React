@@ -9,6 +9,13 @@ body {
   margin: 0 auto;
 }
 
+h1,
+h3,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .head {
   background-color: blanchedalmond;
   color: black;
@@ -33,13 +40,14 @@ select {
   background-color: #84a8bc;
   border: none;
   color: white;
-  padding: 17px 30px;
+  padding: 16px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 0 11px;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .container {
@@ -54,8 +62,12 @@ select {
 
 .expense {
   background: rgb(235, 87, 87);
+  display: grid;
 }
 
+h2 {
+  margin: 5px 0;
+}
 .balance {
   background: black;
   color: white;
@@ -66,4 +78,22 @@ select {
 .list {
   list-style-type: none;
   font-size: 25px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  border: white solid 2px;
+  margin: 0 10px 5px;
+  padding: 2px 0;
+}
+
+.listBtn {
+  background-color: #84a8bc;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 11px;
+  font-weight: bold;
 }

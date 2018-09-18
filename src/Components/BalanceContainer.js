@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Income from "./Income";
 import Expense from "./Expense";
 import Balance from "./Balance";

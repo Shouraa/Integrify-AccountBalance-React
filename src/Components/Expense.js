@@ -1,20 +1,18 @@
 import React, { Component } from "react";
+import Entry from "./Entry/Entry";
 
 const Expense = props => {
   return (
-    <ul>
-      <h3>Expenses</h3>
-      {props.expenses.map((expense, index) => (
-        <li className="list" key={index} index={index}>
-          <div>
-            {expense.description} -- {expense.amount} &euro; {expense.time}
-            <button onClick={() => props.handleDelete("Expense", index)}>
-              delete
-            </button>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <React.Fragment>
+      <h2>Expenses</h2>
+      <ul>
+        <Entry
+          list={props.expenses}
+          handleDelete={props.handleDelete}
+          type="Expense"
+        />
+      </ul>
+    </React.Fragment>
   );
 };
 
