@@ -22,9 +22,9 @@ const Form = props => {
         <option value="Expense">Expense</option>
       </select>
 
-      <button className="btn" onClick={props.addItem}>
-        Add
-      </button>
+      <div className="btn" onClick={props.addItem}>
+        ADD
+      </div>
     </div>
   );
 };

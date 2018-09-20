@@ -7,10 +7,15 @@ const Entry = props => {
     <div>
       {list.map((item, index) => (
         <li className="list" key={index} index={index}>
-          {item.description} -- {item.amount} &euro; "{item.time}"
-          <button className="listBtn" onClick={() => handleDelete(type, index)}>
+          <div>
+            <div className="itemName">{item.description}</div>
+            <div className="itemAmount">{item.amount} &euro;</div>
+            <div className="time">{item.time}</div>
+          </div>
+
+          <div className="btn" onClick={() => handleDelete(type, index)}>
             delete
-          </button>
+          </div>
         </li>
       ))}
     </div>
