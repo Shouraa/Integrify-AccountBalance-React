@@ -6,12 +6,12 @@
 
 html {
   font-size: 10px;
-  background: url(https://cdn.pixabay.com/photo/2017/04/25/09/15/cash-2259076_960_720.jpg)
-    center;
+  background-color: #e7e9f3;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat repeat;
   background-position: center;
-  height: 800px;
+  height: 100%;
+  width: 100%;
 }
 
 html,
@@ -21,6 +21,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  color: #534f93;
 }
 
 h1,
@@ -32,13 +33,14 @@ ul {
 
 .head {
   /* background-color: blanchedalmond; */
-  color: black;
+  color: s #534f93;
+
   margin: 0 auto;
   padding: 20px 0;
+  font-size: 2em;
 }
 
 .inputBar {
-  /* background: rgb(137, 2, 150); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,10 +52,15 @@ select {
   width: 250px;
   padding: 12px 20px;
   font-size: 25px;
-  color: black;
+  color: #534f93;
+
   margin: 8px 6px;
   box-sizing: border-box;
   border-radius: 0.5rem;
+  border: none;
+}
+select-hide {
+  display: none;
 }
 
 .btn {
@@ -70,22 +77,31 @@ select {
   background: rgba(152, 180, 240, 0.63);
   text-shadow: 0 0 0.5rem black;
   cursor: pointer;
+  max-height: 30px;
 }
 
 .container {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
   grid-template-columns: 1fr 1fr;
 }
 
-.income {
-  background: rgb(96, 221, 96);
+.inExGrid {
   display: grid;
+  grid-template-rows: min-content 1fr;
+}
+
+.income {
+  background: #8afec3;
 }
 
 .expense {
-  background: rgb(235, 87, 87);
-  display: grid;
+  background: #fc726b;
+}
+
+.amount-removeBtn {
+  display: flex;
+  justify-content: space-between;
 }
 
 h2 {
@@ -93,7 +109,7 @@ h2 {
 }
 
 ul {
-  border-bottom: rgb(0, 0, 0) 5px solid;
+  border-bottom: rgb(0, 0, 0, 0.4) 5px solid;
 }
 
 .list {
@@ -101,11 +117,24 @@ ul {
   font-size: 25px;
   display: grid;
   grid-template-columns: 3fr 1fr;
-  border: white solid 2px;
-  border-radius: 0.5rem;
+  grid-template-rows: 1fr 1fr;
+  border-radius: 1.5rem;
   background: rgba(225, 225, 225, 0.8);
   margin: 0 10px 5px;
   padding: 2px 0;
+  overflow: hidden;
+}
+
+.itemName {
+  margin-top: 12px;
+}
+
+.itemName span {
+  font-weight: bold;
+}
+
+.itemAmount {
+  margin-bottom: 10px;
 }
 
 .listBtn {
@@ -122,7 +151,7 @@ ul {
 }
 
 .balance {
-  background: none;
+  background: #cbc8f3;
   color: white;
   grid-column-start: 2;
   grid-column-end: 3;
@@ -130,6 +159,12 @@ ul {
   font-style: italic;
   font-size: 2rem;
   color: black;
+  margin-top: 20px;
+  max-width: 300px;
+  padding: 20px 30px;
+  grid-column: 1 / span 3;
+  justify-self: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -137,16 +172,3 @@ ul {
     display: block;
   }
 }
-/* .btn {
-  background-color: #84a8bc;
-  border: none;
-  color: white;
-  padding: 16px 30px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 0 11px;
-  font-weight: bold;
-  font-size: 20px;
-} */

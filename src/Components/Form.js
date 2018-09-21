@@ -18,6 +18,7 @@ const Form = props => {
       />
 
       <select value={props.addType} onChange={props.handleAddType}>
+        <option value="Type">Select a Type:</option>
         <option value="Income">Income</option>
         <option value="Expense">Expense</option>
       </select>

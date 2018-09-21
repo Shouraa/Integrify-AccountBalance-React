@@ -6,10 +6,10 @@ import Balance from "./Balance";
 const BalanceContaianer = props => {
   return (
     <div className="container">
-      <div className="income">
+      <div className="income inExGrid">
         <Income incomes={props.incomes} handleDelete={props.handleDelete} />
       </div>
-      <div className="expense">
+      <div className="expense inExGrid">
         <Expense expenses={props.expenses} handleDelete={props.handleDelete} />
       </div>
       <div className="balance">

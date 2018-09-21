@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     description: "",
     amount: "",
-    addType: "Income",
+    addType: "Type",
     incomes: [],
     expenses: [],
     balance: 0
@@ -77,8 +77,13 @@ class App extends Component {
         balance: this.calculateBalance2(arr1, arr2)
       });
     }
-    this.setState({ description: "" });
-    this.setState({ amount: "" });
+    this.setState({
+      description: "",
+      amount: "",
+      addType: "Type"
+    });
+    // this.setState({ amount: "" });
+    // this.setState({ addType: "Type" });
   };
 
   //Deleting items

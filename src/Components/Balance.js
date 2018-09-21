@@ -2,10 +2,13 @@ import React, { Component } from "react";
 
 const Balance = props => {
   return (
-    <h3>
-      Balance:
-      {props.balance}
-    </h3>
+    <div className="balanceHead">
+      <h3>Balance:</h3>
+      <h3>
+        {props.balance}
+        &euro;
+      </h3>
+    </div>
   );
 };
 

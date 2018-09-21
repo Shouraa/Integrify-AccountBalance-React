@@ -4,7 +4,7 @@ import Entry from "./Entry/Entry";
 const Income = props => {
   return (
     <React.Fragment>
-      <h2>Incomes</h2>
+      <h2 className="col-head">Incomes</h2>
       <ul>
         <Entry
           list={props.incomes}
