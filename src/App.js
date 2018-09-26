@@ -11,12 +11,12 @@ class App extends Component {
     addType: "Type",
     incomes: [],
     expenses: [],
-    balance: 0
+    balance: 0,
+    errorMsg: "Mess"
   };
 
   //Handlers
   handleDescriptionChange = e => {
-    e.preventDefault();
     this.setState({ description: e.target.value });
   };
 
@@ -26,6 +26,33 @@ class App extends Component {
 
   handleAddType = e => {
     this.setState({ addType: e.target.value });
+  };
+
+  isSubmitDisabled = () => {
+    return this.state.errorMsg !== "";
+  };
+
+  validate = () => {
+    const descriptionRegex = /^[A-Za-z]+$/;
+    if (
+      !descriptionRegex.test(this.state.description) ||
+      this.state.description === " "
+    ) {
+      this.setState({
+        errorMsg: "Fill the description!"
+      });
+    } else {
+      this.setState({
+        errorMsg: ""
+      });
+    }
+    console.log(this.state.errorMsg);
+  };
+
+  handleDescription = e => {
+    this.handleDescriptionChange(e);
+    this.validate();
+    console.log("is submit disabled", this.isSubmitDisabled());
   };
 
   //Getting the time
@@ -51,7 +78,8 @@ class App extends Component {
   };
 
   //Adding items
-  addItem = () => {
+  addItem = e => {
+    e.preventDefault();
     let arr1 = this.state.incomes;
     let arr2 = this.state.expenses;
 
@@ -128,12 +156,13 @@ class App extends Component {
 
         <Form
           description={this.state.description}
-          handleDescriptionChange={this.handleDescriptionChange}
+          handleDescription={this.handleDescription}
           amount={this.state.amount}
           handleAmountChange={this.handleAmountChange}
           addType={this.state.addType}
           handleAddType={this.handleAddType}
           addItem={this.addItem}
+          isSubmitDisabled={this.isSubmitDisabled}
         />
 
         <BalanceContaianer
@@ -168,3 +197,34 @@ export default App;
 //     balance: balance
 //   });
 // };
+
+// const descriptionInput = document.querySelector("#description");
+// const amountInput = document.querySelector("#amount");
+// const inputBar = document.querySelector("#inputBar");
+// let msg = "";
+// const descriptionRegex = /^[A-Za-z]+$/;
+
+//checking the valid input for description input
+
+// if (
+//   !this.state.description ||
+//   this.state.description == " " ||
+//   !descriptionRegex.test(this.state.description)
+// ) {
+//   msg = msg + " Description!";
+// }
+// console.log(msg);
+
+// if (msg !== "") {
+//   this.setState({
+//     errorMsg: msg
+//   });
+//   inputBar.classList.add("invalid");
+// } else {
+//   descriptionInput.classList.remove("invalid");
+//   inputBar.classList.remove("invalid");
+//   this.setState({
+//     errorMsg: ""
+//   });
+// }
+//Adding to the arrays

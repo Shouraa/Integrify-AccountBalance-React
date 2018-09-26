@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 
 const Form = props => {
+  const isDisabled = props.isSubmitDisabled();
   return (
-    <div className="inputBar">
+    <form className="inputBar" id="inputBar" onSubmit={props.addItem}>
       <input
+        id="description"
         type="text"
         placeholder="Description"
         value={props.description}
-        onChange={props.handleDescriptionChange}
+        onChange={props.handleDescription}
       />
       <input
+        id="amount"
         type="text"
         value=""
         placeholder="Amount"
@@ -23,10 +26,10 @@ const Form = props => {
         <option value="Expense">Expense</option>
       </select>
 
-      <div className="btn" onClick={props.addItem}>
+      <button className="btn" type="submit" disabled={isDisabled}>
         ADD
-      </div>
-    </div>
+      </button>
+    </form>
   );
 };
 
