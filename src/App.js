@@ -82,8 +82,6 @@ class App extends Component {
       amount: "",
       addType: "Type"
     });
-    // this.setState({ amount: "" });
-    // this.setState({ addType: "Type" });
   };
 
   //Deleting items
