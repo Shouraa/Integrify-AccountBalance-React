@@ -132,6 +132,11 @@ class App extends Component {
     }
   };
 
+  //Editing Items
+  editItem = index => {
+    let incomeArr = this.state.incomes;
+  };
+
   //Calculating the sum
   calculateBalance2 = (incomesList, expensesList) => {
     let totalIncome = 0;
